@@ -2,9 +2,10 @@
   "name": "ProjetoModulo3",
   "version": "1.0.0",
   "description": "API_ToDo_List",
-  "main": "todo_APP_API.js",
+  "main": "app-todo.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/app-todo.js"
   },
   "repository": {
     "type": "git",

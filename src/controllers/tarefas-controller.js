@@ -1,28 +1,56 @@
-const Tarefas = require("../Models/tarefa-model")
+//const Tarefas = require("../models/tarefa")
+const { response } = require("express");
+const TarefasDAO = require("../DAO/tarefas-dao")
 
-module.exports = (app, bd) => {
-    app.get('/tarefas', (req, res)=>{
+module.exports = (app, dados) => {
+  const tarefasDAO = new TarefasDAO(dados); 
 
-        res.send(bd.tarefas);
+    app.get('/tarefas', async (req, res) => {
+        try {
+          const todasTarefas = await tarefasDAO.listaTarefasDAO();
+          res.send(todasTarefas);
+
+        } catch (error) {
+          res.send(error);
+        }
+
     });
 
-    app.get('/usuarios/:id', (req, res) => {
-        for(let tarefa of bd.tarefas) {
-          if (tarefa.id == req.params.id){
-            res.send(tarefa);
-          }
+    app.get('/tarefas/:id', async (req, res) => {
+      try {
+        const tarefa = await tarefasDAO.listaTarefasIdDAO(req.params.id);
+        res.send(tarefa);
+      } 
+      catch (error) {
+        res.send("Tarefa não encontrada.");   
+      }
+    });
+
+    app.get('/tarefas/user/:id_usuario', async (req, res) => {
+     
+      try {
+        const tarefas = await tarefasDAO.listaTarefasUserDAO(req.params.id_usuario);
+        res.send(tarefas);
+      } 
+      catch (error) {
+        res.send("Usuário não encontrado.")   
+      }
+    });
+
+    app.post("/tarefas", async (req, res)=>{
+        
+      try {
+
+        const novaTarefa = await tarefasDAO.insertTarefasDAO(req.body)
+        if (novaTarefa == )
+        res.send("Tarefa adicionada com sucesso.") 
+
+      } catch (error) {
+
+        res.send("Erro ao inserir nova tarefa")
+
         }
-        res.send("tarefa não encontrada!");
-      });
-
-      
-
-    app.post("/tarefas", (req, res)=>{
-        const task = new Tarefas(req.body.id, req.body.titulo, req.body.mensagem, req.body.status, req.body.data);
-
-        bd.tarefas.push(task);
-
-        res.send("Tarefinha colocada")
+        
     })
 
 }
