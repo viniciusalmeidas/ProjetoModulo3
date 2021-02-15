@@ -64,25 +64,25 @@ module.exports = class TarefasDAO {
             {
                 if(error) {reject(`Erro ao tentar inserir ${error}`)} 
 
-                else {resolve(`Tarefas ${body.titulo} adicionadas com sucesso!`)}
+                else {resolve(`Tarefa adicionada com sucesso.`)}
             })
         })
     }
 
 
-    // updateTarefaDAO(id, body){
-    //     return new Promise((resolve, reject)=>{
+    updateTarefaDAO(id, body){
+        return new Promise((resolve, reject)=>{
             
-    //         this._dados.run("UPDATE TAREFAS SET TITULO=?, DESCRICAO=?, STATUS=?, DATACRIACAO=? WHERE ID=?;",
-    //         [body.TITULO, body.DESCRICAO, body.STATUS, body.DATACRIACAO, id],
-    //         (error)=>
-    //         {
-    //             if(error) {reject(`Erro ao tentar atualizar tarefa ${error}`)} 
+            this._dados.run("UPDATE TAREFAS SET TITULO=?, DESCRICAO=?, STATUS=?, DATACRIACAO=?, ID_USUARIO=? WHERE ID=?;",
+            [body.titulo, body.descricao, body.status, body.data_criacao, body.id_usuario, id],
+            (error)=>
+            {
+                if(error) {reject(`Erro ao tentar atualizar tarefa ${error}`)} 
 
-    //             else {resolve(`Tarefa atualizada com sucesso!`)}
-    //         })
-    //     })
-    // }
+                else {resolve(`Tarefa atualizada com sucesso!`)}
+            })
+        })
+    }
 
     // deleteTarefaDAO(id){
     //     return new Promise((resolve, reject)=>{

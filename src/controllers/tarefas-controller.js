@@ -40,17 +40,33 @@ module.exports = (app, dados) => {
     app.post("/tarefas", async (req, res)=>{
         
       try {
-
         const novaTarefa = await tarefasDAO.insertTarefasDAO(req.body)
-        if (novaTarefa == )
-        res.send("Tarefa adicionada com sucesso.") 
-
+        if (novaTarefa == `Tarefa adicionada com sucesso.`)
+        
+        res.status(200).send("Tarefa adicionada com sucesso.")
+         
       } catch (error) {
 
         res.send("Erro ao inserir nova tarefa")
+        }
+        
+    });
 
+
+    app.put('/tarefas/:id', async (req, res)=>{
+        
+      try {
+        let atualizaTarefa = await tarefasDAO.updateTarefaDAO(req.params.id, req.body)
+        
+        res.status(200).send(`Tarefa atualizada com sucesso.`)
+                 
+      } catch (error) {
+
+        res.send("Erro ao atualizar")
         }
         
     })
+
+
 
 }
