@@ -84,16 +84,16 @@ module.exports = class TarefasDAO {
         })
     }
 
-    // deleteTarefaDAO(id){
-    //     return new Promise((resolve, reject)=>{
-    //         this._dados.run("DELETE FROM USUARIOS WHERE ID=?",
-    //         [id],
-    //         (error)=>
-    //         {
-    //             if(error) {reject(`Erro ao tentar deletar o registro ${id}`)} 
+    removeTarefaDAO(id){
+        return new Promise((resolve, reject)=>{
+            this._dados.run(`DELETE FROM TAREFAS WHERE ID = ?;`,
+            [id],
+            (error)=>
+            {
+                if(error) {reject(`Erro ao tentar deletar o registro ${id}`)} 
 
-    //             else {resolve(`Tarefa deletada com sucesso!`)}
-    //         })
-    //     })
-    // }
+                else {resolve(`Tarefa deletada com sucesso!`)}
+            })
+        })
+    }
 }

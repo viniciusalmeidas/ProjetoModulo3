@@ -1,5 +1,3 @@
-//const Tarefas = require("../models/tarefa")
-const { response } = require("express");
 const TarefasDAO = require("../DAO/tarefas-dao")
 
 module.exports = (app, dados) => {
@@ -11,7 +9,7 @@ module.exports = (app, dados) => {
           res.send(todasTarefas);
 
         } catch (error) {
-          res.send(error);
+          res.send("Erro ao mostrar todos as tarefas");
         }
 
     });
@@ -58,7 +56,7 @@ module.exports = (app, dados) => {
       try {
         let atualizaTarefa = await tarefasDAO.updateTarefaDAO(req.params.id, req.body)
         
-        res.status(200).send(`Tarefa atualizada com sucesso.`)
+        res.status(200).send(atualizaTarefa)
                  
       } catch (error) {
 
@@ -67,6 +65,19 @@ module.exports = (app, dados) => {
         
     })
 
+    app.delete('/tarefas/:id', async (req, res)=>{
+        
+      try {
+        let removeTarefa = await tarefasDAO.removeTarefaDAO(req.params.id)
+        
+        if(removeTarefa == `Tarefa deletada com sucesso!`)
+        res.status(200).send(removeTarefa)
+                 
+      } catch (error) {
 
+        res.send("Erro ao remover.")
+        }
+        
+    })
 
 }

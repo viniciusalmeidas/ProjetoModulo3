@@ -1,61 +1,70 @@
-const Usuarios = require("../models/usuario")
+const UsuariosDAO = require("../DAO/usuarios-dao")
 
-module.exports = (app, bd) => {
 
-    //req (requisição)
-    //app.get recebe a rota e um callback
-    app.get('/usuarios', (req, res)=> {
-      //função callback recebe a requisição e a resposta
+module.exports = (app, dados) => {
+  const usuariosDAO = new UsuariosDAO(dados)
 
-        res.send(bd.usuarios); // imprimir algo quando carregar o get
-    });
+    app.get('/usuarios', async (req, res)=> {
+      try {
+        const todosUsuarios = await usuariosDAO.listaUsuariosDAO();
+        res.status(200).send(todosUsuarios);
 
-    app.get('/usuarios/:email', (req, res) => {
-        for(let usuario of bd.usuarios) {
-          if (usuario.email == req.params.email){
-            res.send(usuario);
-          }
-        }
-        res.send("Usuario não encontrado!");
-      });
+      } catch (error) {
+        res.send("Erro ao mostrar os usuários");
+      }
+
+  });
+
+  app.get('/usuarios/:id', async (req, res) => {
+    try {
+      const user = await usuariosDAO.listaUsuarioIdDAO(req.params.id);
+      res.status(200).send(user);
+    } 
+    catch (error) {
+      res.send("Usuário não encontrado.");   
+    }
+  });
 
       
-    app.post("/usuarios",(req, res)=>{
+  app.post("/usuarios", async (req, res) => {
 
-        
-        const usr = new Usuarios(req.body.nome, req.body.email, req.body.senha);
-        bd.usuarios.push(usr);
-        
-        res.send("Será que vem ai?")
+    try {
+      const newUser = await usuariosDAO.insertUsuariosDAO(req.body);
+      res.status(200).send(newUser)
 
+    } catch (error) {
+      res.send("Não foi possível adicionar novo usuário.")
+    }
 
-    })
+  });
 
-    app.delete('/usuarios/:email', (req, res) => {
+  app.put("/usuarios/:id", async (req, res) =>{
+
+    try {
+      let atualizaUsuario = await usuariosDAO.updateUsuarioDAO(req.params.id, req.body)
+      
+      res.status(200).send(atualizaUsuario)
+               
+    } catch (error) {
+
+      res.send("Erro ao atualizar")
+      }
+  })
+
+  app.delete('/usuarios/:id', async (req, res) => {
     
-        let bancoFiltrado = [];
-        for(let i = 0; i < bd.usuarios.length; i++) {
-          if(req.params.email != bd.usuarios[i]._email) {
-            bancoFiltrado.push(bd.usuarios[i]);
-          }
-        }
-        if(bd.usuarios.length != bancoFiltrado.length) {
-          bd.usuarios = bancoFiltrado;
-          res.send(`Usuario ${req.params.email} foi removido!`)
-        } else {
-          res.send(`Usuario ${req.params.email} encontrado!`);
-        }
-      })
+    try {
+      let a = await usuariosDAO.removeUsuarioDAO(req.params.id)
+      res.status(200).send(a)
+               
+    } catch (error) {
 
-      app.put("/usuarios/:email", (req, res) =>{
+      res.send("Erro ao remover.")
+    }
+      
+  });
+      
 
-        for (const user of bd.usuarios) {
-          if (req.params.email == user.email) {
-            user.email = req.body.email
-          }
-        }
 
-        res.send("Atualização Ok")
-      })
     
 }
