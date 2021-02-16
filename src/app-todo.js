@@ -3,7 +3,8 @@ const dados = require('./infra/sqlite-db')
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require('cors');
-const port = 8080;
+//const port = 8080;
+const port = process.env.PORT;
 
 const app = express(); //tem método USE 
 
@@ -18,5 +19,5 @@ usuarioController(app, dados);
 tarefaController(app, dados);
 
 app.listen(port, ()=> {
-    console.log(`Servidor rodando em localhost: ${port}`)
+    console.log(`[INFO]: Servidor rodando em localhost: ${port}`)
 });

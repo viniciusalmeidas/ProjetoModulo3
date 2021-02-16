@@ -5,14 +5,17 @@
   "main": "app-todo.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/app-todo.js"
+    "start": "node ./src/app-todo.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/viniciusalmeidas/ProjetoModulo3.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "author": "viniciusalmeidas",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/viniciusalmeidas/ProjetoModulo3/issues"
@@ -26,5 +29,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
+  },
+  "engines": {
+    "node": "14.xx"
   }
+
 }
