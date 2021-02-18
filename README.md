@@ -18,8 +18,7 @@ A melhoria do projeto será criar uma interface Front-End usando React para a ap
 
 0. Através das rotas abaixo você consegue acessar e ativar a aplicação.</n>
 
-
-
+[To-Do-List.herokuapp]https://to-do-list-vinicius.herokuapp.com/usuarios
 
 1. 
 
@@ -32,12 +31,11 @@ ID_USUARIO | NOME | E-MAIL | SENHA
 007 | Vinicius Almeida | email1@gmail.com | 12345
 666 | Minha Sogra | naomoracomigo@gmail.com | 54321
 
-2. Estrutura da lista de TAREFAS
+3. Estrutura da lista de TAREFAS
 
 ID | TITULO | DESCRICAO | STATUS | DATACRIACAO | ID_USUARIO  
 -------|--------|----------|----------|----------|----------
-007 | Vinicius Almeida | email1@gmail.com | 12345
-666 | Minha Sogra | naomoracomigo@gmail.com | 54321
+1|	Yoga	|Fazeryoga segunda e quarta	|Continuo|	2021-01-10|	007
 
 4. PRONTO! 
 
