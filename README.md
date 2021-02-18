@@ -35,7 +35,8 @@ ID_USUARIO | NOME | E-MAIL | SENHA
 
 ID | TITULO | DESCRICAO | STATUS | DATACRIACAO | ID_USUARIO  
 -------|--------|----------|----------|----------|----------
-1|	Yoga	|Fazeryoga segunda e quarta	|Continuo|	2021-01-10|	007
+1|	Yoga	|Fazeryoga segunda e quarta	|Continuo|	2021-02-22|	666
+2|	Futebol	|Jogar com amigos terça-feira	|Pontual|	2021-02-22 |	007
 
 4. PRONTO! 
 
