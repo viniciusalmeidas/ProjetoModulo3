@@ -8,7 +8,7 @@ Criamos esse App em Fevereiro/2021 como requisito para aprovação no Módulo 3 
 
 A melhoria do projeto será criar uma interface Front-End usando React para a aplicação.
 
-<h2>O que o código faz ?</h2>
+<h2>O que a aplicação faz ?</h2>
 <hr>
 
 <img width="300" alt="insominia1" src="https://github.com/viniciusalmeidas/ProjetoModulo3/blob/heroku-vini/src/images/Todo-tarefas.png">
@@ -17,6 +17,9 @@ A melhoria do projeto será criar uma interface Front-End usando React para a ap
 
 
 0. Através das rotas abaixo você consegue acessar e ativar a aplicação.</n>
+
+
+
 
 1. 
 
