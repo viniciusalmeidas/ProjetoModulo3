@@ -17,11 +17,17 @@ A melhoria do projeto será criar uma interface Front-End usando React para a ap
 
 
 0. Através das rotas abaixo você consegue acessar e ativar a aplicação.</n>
-
+````
+/usuarios
+/usuarios/:id 
+  ex: /usuarios/2
+/tarefas/
+/tarefas/:id 
+  ex:tarefas/9
+```
 [To-Do-List.herokuapp]https://to-do-list-vinicius.herokuapp.com/usuarios
 
-1. 
-
+1. Ao entrar você terá acesso do método GET para a view dos bancos de usuarios e tarefas.
 
 
 2. Estrutura do Banco de Dados de USUARIOS
@@ -38,14 +44,18 @@ ID | TITULO | DESCRICAO | STATUS | DATACRIACAO | ID_USUARIO
 1|	Yoga	|Fazeryoga segunda e quarta	|Continuo|	2021-02-22|	666
 2|	Futebol	|Jogar com amigos terça-feira	|Pontual|	2021-02-22 |	007
 
-4. PRONTO! 
+4. PRONTO! agora através de rotas você conseguem interagir com a banco de dados.
 
 
 <h2>FAQ</h2>
 <hr>
 <h5>Como eu adiciono um usuário na lista ?</h5>
+Qualquer modificação do banco de daods como os métodos POST e DELETE ficarão prontos em outra branch junto ao Front-End.
+
 
 <h5>Como eu adiciono uma tarefa ?</h5>
+Qualquer modificação do banco de daods como os métodos POST e DELETE ficarão prontos em outra branch junto ao Front-End.
+
 
 <h5>Mas... Quais são as limitações?</h5>
 Um monte de limitações!
