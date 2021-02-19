@@ -44,21 +44,16 @@ ID | TITULO | DESCRICAO | STATUS | DATACRIACAO | ID_USUARIO
 <h2>FAQ</h2>
 <hr>
 <h5>Como eu adiciono um usuário na lista ?</h5>
-Hum, so you already know that Whatsapp does not allow Bots, right?
-
 
 <h5>Como eu adiciono uma tarefa ?</h5>
 
 <h5>Mas... Quais são as limitações?</h5>
 Um monte de limitações!
 
-As you are handling DOM direcly, you can't process hundred of messages at once. Yowsup is much better at this subject.
 
-You have to install Whatsapp on your phone, connect it on Wifi and keep it charging all the time. So you have to have a cellphone exclusively for this Bot. You will need a computer with chrome running as well. But that's the main objective: In order to avoid being detect as a Bot, so you have to play this boring cat-and-rat game.
-
-<h5>I think there're some bugs on your code.</h5>
-SIM ! um monte.
-Sinta-se livre para me ajudar dar seu commit.
+<h5>Eu acho que existe algum bug no seu código.</h5>
+Sim! um monte.
+Sinta-se livre para me ajudar e dê o seu commit.
 
 <h2>Fair play: Regras do Jogo</h2>
 <hr>
